@@ -3,51 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clothing E‑Commerce Demo</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    header { text-align: center; }
-    .product { border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; }
-    .product img { width: 150px; height: auto; }
-    .product button { margin-top: 10px; }
-  </style>
+  <title>Clothing Store Demo</title>
 
   <!-- Google Analytics Measurement Code -->
-  <!-- Replace G-XXXXXXXXXX with your own Measurement ID -->
+  <!-- Replace G-XXXXXXXXXX with your own GA4 Measurement ID -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // Basic page view tracking
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-XXXXXXXXXX'); 
   </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .product {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>FashionHub Clothing Store</h1>
-    <p>Welcome to our demo e‑commerce site!</p>
-  </header>
 
-  <section>
-    <div class="product">
-      <img src="https://via.placeholder.com/150" alt="T-Shirt">
-      <h3>Classic T‑Shirt</h3>
-      <p>₹499</p>
-      <button onclick="gtag('event', 'add_to_cart', {item: 'Classic T-Shirt'});">
-        Add to Cart
-      </button>
-    </div>
+<header>
+  <h1>FashionHub Demo Store</h1>
+</header>
 
-    <div class="product">
-      <img src="https://via.placeholder.com/150" alt="Jeans">
-      <h3>Denim Jeans</h3>
-      <p>₹999</p>
-      <button onclick="gtag('event', 'add_to_cart', {item: 'Denim Jeans'});">
-        Add to Cart
-      </button>
-    </div>
-  </section>
+<div class="container">
+  <div class="product">
+    <h2>Classic T‑Shirt</h2>
+    <p>Price: ₹499</p>
+    <button onclick="trackClick('Classic T-Shirt')">Buy Now</button>
+  </div>
+
+  <div class="product">
+    <h2>Denim Jeans</h2>
+    <p>Price: ₹999</p>
+    <button onclick="trackClick('Denim Jeans')">Buy Now</button>
+  </div>
+</div>
+
+<script>
+  function trackClick(itemName) {
+    gtag('event', 'purchase_click', {
+      event_category: 'engagement',
+      event_label: itemName
+    });
+    alert(itemName + " button click tracked!");
+  }
+</script>
+
 </body>
 </html>
