@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clothing E‑Commerce Demo</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    header { text-align: center; }
+    .product { border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; }
+    .product img { width: 150px; height: auto; }
+    .product button { margin-top: 10px; }
+  </style>
+
+  <!-- Google Analytics Measurement Code -->
+  <!-- Replace G-XXXXXXXXXX with your own Measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Basic page view tracking
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+  <header>
+    <h1>FashionHub Clothing Store</h1>
+    <p>Welcome to our demo e‑commerce site!</p>
+  </header>
+
+  <section>
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="T-Shirt">
+      <h3>Classic T‑Shirt</h3>
+      <p>₹499</p>
+      <button onclick="gtag('event', 'add_to_cart', {item: 'Classic T-Shirt'});">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/150" alt="Jeans">
+      <h3>Denim Jeans</h3>
+      <p>₹999</p>
+      <button onclick="gtag('event', 'add_to_cart', {item: 'Denim Jeans'});">
+        Add to Cart
+      </button>
+    </div>
+  </section>
+</body>
+</html>
